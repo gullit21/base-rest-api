@@ -1,0 +1,29 @@
+API
+
+
+1 - Conectar banco e configurar FLYWAY
+2 - Criar primeiros dois recursos
+
+
+3 - Verificar validações em geral
+	spring.jackson.deserialization.fail-on-unknown-properties=true --> usado para restringir os parametros recebidos que não existam na API
+	
+4 - Criar @ControllerAdvice 'API'ExceptionHandler extends ResponseEntityExceptionHandler para capturar todas as exceções lançadas enquanto RECURSO e tratar o retorno
+5 - Criar arquivo de mensagens e iniciar o uso
+6 - Usar BeanValidation para validar atributos dos recursos (@Valid)
+	Mensagem personalizada pelo ValitadionMessages.properties, o código do campo esta "dentro" da anotação no domínio.
+	Nome do atributo exibido de acordo com o messages.properties -> categoria.nome=Nome
+
+
+7 - Usar eventos (extends ApplicationEvent) para adicionar o header "Location" no retorno das criações
+8 - Criar @Component RecursoCriadoListener implements ApplicationListener<RecursoCriadoEvent>
+
+9 - commons-lang3 para obter bibliotéca de tratamento de exceções (ExceptionUtils) mais detalhado (ROOT)
+
+10 - Aprofundar conhecimento sobre o MetaModel do JPA e utilizar
+
+11 - Adicionar paginação (consultar -> LancamentoRepositoryImpl)
+
+12 - Adicionar segurança na API (Spring Security, OAuth e JWT) com as classes ResourceServerConfig, AuthorizationServerConfig, OAuthSecurityConfig, RefreshTokenPostProcessor, RefreshTokenPreProcessorFilter, CorsFilter, Usuario, Permissao, AppUserDetailsService, TokenResource, CustomTokenEnhancer, UsuarioSistema, BasicSecurityConfig (apos Profile)
+
+13 - Configurar "Profile" prod e dev, criar classe de propriedade "App"ApiProperty (spring-boot configurator-processor)
